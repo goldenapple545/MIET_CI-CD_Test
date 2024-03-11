@@ -1,24 +1,24 @@
 name: Python Test CI
 on:
-steps:
-push:
-- uses: actions/checkout@v2
-branches:
-- name: Set up Python
-- main
-uses: actions/setup-python@v2
-pull_request:
-with:
-branches:
-python-version: '3.10'
-- main
-- name: Install dependencies
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
-run: |
-build:
-python -m pip install --upgrade pip wheel pipenv
-runs-on: ubuntu-latest
-pipenv install pytest
-- name: Run tests
-run: |
-pipenv run pytest test_basics.py
+  build:
+    runs-on: ubuntu-latest
+steps:
+  - uses: actions/checkout@v2
+  - name: Set up Python
+    uses: actions/setup-python@v2
+    with:
+      python-version: '3.x'
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip wheel pipenv
+      pipenv install pytest
+  - name: Run tests
+    run: |
+      pipenv run pytest test_basics.py
