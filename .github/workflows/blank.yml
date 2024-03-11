@@ -34,3 +34,5 @@ jobs:
       - name: Run tests
         run: |
           pipenv run pytest test_basics.py
+      - name: Deploy code to server run:
+        ssh user@server 'cd /project/path && git pull origin main
