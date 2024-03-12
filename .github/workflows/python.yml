@@ -2,10 +2,10 @@ name: Python Test CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
         pipenv install pytest
     - name: Run tests
       run: |
-        pipenv run pytest test_basics.py
+        pipenv run pytest
