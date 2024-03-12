@@ -26,8 +26,6 @@ jobs:
         name: Pytest Report
         path: pytest_report.xml
         reporter: java-junit 
-    - name: Build executable
-      run: pipenv run pyinstaller --onefile main.py
     - name: Upload build artifact
       uses: actions/upload-artifact@v2
       with:

@@ -16,8 +16,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pipenv pyinstaller
-    - name: Build executable
-      run: pipenv run pyinstaller --onefile main.py
     - name: Create a Release
       id: create_release
       uses: shogo82148/actions-create-release@v1
